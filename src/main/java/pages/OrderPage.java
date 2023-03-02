@@ -13,28 +13,28 @@ public class OrderPage {
     // Кнопка Заказать
     private final By buttonOrder = By.xpath("//button[@class='Button_Button__ra12g']");
     // нижняя кнопка заказа
-    private final By bottomButtonToOrder = By.xpath("//*[@id=\"root\"]/div/div/div[4]/div[2]/div[5]/button");
+    private final By bottomButtonToOrder = By.className("Home_FinishButton__1_cWm");
     // Поле ввести Имя
     private final By inputName = By.xpath("//input[@class='Input_Input__1iN_Z Input_Responsible__1jDKN']");
     // Поле ввести Фамилию
     private final By inputLastName = By.xpath("//input[@class='Input_Input__1iN_Z Input_Responsible__1jDKN']");
     // Поле ввести Адрес
-    private final By inputAddress = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[3]/input");
+    private final By inputAddress = By.xpath("//input[@class='Input_Input__1iN_Z Input_Responsible__1jDKN']");
     // Поле метро
     private final By fieldSabWay = By.className("select-search__input");
     // Откидная шторка с выбором Станции метро
     private final By metroStationList = By.className("select-search__row");
     // Поле ввода телефонного номера
-    private final By inputPhoneNumber = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[5]/input");
+    private final By inputPhoneNumber = By.xpath("//*[contains(@placeholder,'* Телефон: на него позвонит курьер')]");
     // Кнопка Далее
-    private final By nextButton = By.xpath("//*[@id=\"root\"]/div/div[2]/div[3]/button");
+    private final By nextButton = By.className("Button_Middle__1CSJM");
     //  "Поле дата"
-    private final By fieldOrderDate = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[1]/div/div/input");
+    private final By fieldOrderDate = By.className("Input_Responsible__1jDKN");
     // Ввод даты вручкую
-    private final By deliveryDateEntry = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[1]/div/div/input");
+    private final By deliveryDateEntry = By.className("Input_Responsible__1jDKN");
 
     // Окно календаря
-    private final By fieldCalendar = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[1]/div[2]/div[2]/div/div/div[2]/div[2]/div[4]/div[7]");
+    private final By fieldCalendar = By.xpath("//div[@class='react-datepicker__day react-datepicker__day--002 react-datepicker__day--keyboard-selected react-datepicker__day--today']");
 
     // "Срок аренды"
     private final By fieldRentalPeriod = By.className("Dropdown-arrow");
@@ -47,7 +47,7 @@ public class OrderPage {
     // Поле коментарий
     private final By comment = By.xpath("//input[@class='Input_Input__1iN_Z Input_Responsible__1jDKN']");
     // "Клик по кнопке заказать, оформленного заказа"
-    private final By orderButton = By.xpath("//*[@id=\"root\"]/div/div[2]/div[3]/button[2]");
+    private final By orderButton = By.xpath("//*[@class='Button_Button__ra12g Button_Middle__1CSJM']");
     // // Кнопка Да
     private final By yesButton = By.xpath("//button[text()='Да']");
     // текст и номер заказа
@@ -56,6 +56,7 @@ public class OrderPage {
     public OrderPage(WebDriver driver) {
         this.driver = driver;
     }
+
     // метод клик по кнопке принятия куки
     public void clickCookieButton() {
         driver.findElement(cookieButton).click();
@@ -65,6 +66,7 @@ public class OrderPage {
     public void clickOrderButton() {
         driver.findElement(buttonOrder).click();
     }
+
     //метод "Нажать кнопку заказать в низу"
     public void clickBottomButtonToOrder() {
         driver.findElement(bottomButtonToOrder).click();
@@ -116,6 +118,7 @@ public class OrderPage {
     public void setDateEntry(String date) {
         driver.findElement(deliveryDateEntry).sendKeys(date);
     }
+
     // метод "Поле дата"
     public void setOrderDate() {
         driver.findElement(fieldOrderDate).click();
@@ -125,6 +128,7 @@ public class OrderPage {
     public void clickDateCalendar() {
         driver.findElement(fieldCalendar).click();
     }
+
     // "Срок аренды"
     public void clickRentalPeriod() {
         driver.findElement(fieldRentalPeriod).click();
@@ -159,6 +163,7 @@ public class OrderPage {
         setComment(comments);
         driver.findElement(orderButton).click();
     }
+
     // метод Заполнение форм , "Клик по кнопке заказать, оформленного заказа"
     public void formFieldFillingWithCalendar(int index, String comments) {
         setOrderDate();

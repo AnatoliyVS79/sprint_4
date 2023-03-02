@@ -35,17 +35,19 @@ public class ScooterTest {
         forWhom.clickYesButton();
         Assert.assertNotNull(actualOrder);
     }
+
     @Test
     public void fillingFormsWithCalendar() {
         OrderPage forWhom = new OrderPage(driver);
-        WebElement element = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div[4]/div[2]/div[5]/button"));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", element);
+        WebElement element = driver.findElement(By.className("Home_FinishButton__1_cWm"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
         forWhom.clickBottomButtonToOrder();
         forWhom.userInput(firstName, lastName, address, subwayStation, phoneNumber);
         forWhom.formFieldFillingWithCalendar(index, comments);
         forWhom.clickYesButton();
         Assert.assertNotNull(actualOrder);
     }
+
     @After
     public void teardown() {
         driver.quit();

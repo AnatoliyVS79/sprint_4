@@ -12,18 +12,18 @@ public class AdditionalTests {
     public void setup() {
         driver = WebDriverFactory.get();
     }
+
     @Test
-    public void yandexButton(){
+    public void yandexButton() {
         ComponentElements yandexElement = new ComponentElements(driver);
         yandexElement.clickHeaderLogoYandex();
     }
+
     @Test
-    public void scooterButton(){
+    public void scooterButton() {
         ComponentElements scooterElement = new ComponentElements(driver);
         scooterElement.clickScooterButtonHome();
     }
-
-
 
     @After
     public void teardown() {

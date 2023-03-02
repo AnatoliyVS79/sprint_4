@@ -15,9 +15,9 @@ public class MainPage {
     // Кнопка Go
     private final By buttonSearch = By.xpath("//button[@class='Button_Button__ra12g Header_Button__28dPO']");
     //список вопросов о важном
-    private final By questionsList = By.className("accordion__button");
+    private final By questionsList = By.xpath("//div[@class='accordion__button']");
     //блок ответов о важном
-    private final By answerBlock = By.className("accordion__panel");
+    private final By answerBlock = By.xpath("//div[@class='accordion__panel']");
     private final ComponentElements logo;
 
     public MainPage(WebDriver driver) {
@@ -30,11 +30,13 @@ public class MainPage {
         driver.findElement(buttonOrderStatus).click();
         return this;
     }
+
     // метод Выведите номер заказа
     public MainPage setOrderNum(String orderNum) {
         driver.findElement(inputOrderNum).sendKeys(orderNum);
         return this;
     }
+
     // метод клик кнопки Go
     public TrackOrderPage clickSearchButton() {
         driver.findElement(buttonSearch).click();
@@ -50,7 +52,7 @@ public class MainPage {
     //возвращение текста ответа
     public String findAnswerByIndex(int index) {
         WebElement element = driver.findElement(questionsList);
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", element);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
         clickOnQuestionByIndex(index);
         return driver.findElements(answerBlock).get(index).getText();
     }

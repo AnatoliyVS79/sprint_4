@@ -10,11 +10,13 @@ public class TrackOrderPage {
     private final By containerOrderNotFound = By.className("Track_NotFound__6oaoY");
 
     private final ComponentElements logo;
-    public TrackOrderPage(WebDriver driver){
+
+    public TrackOrderPage(WebDriver driver) {
         this.driver = driver;
         logo = new ComponentElements(driver);
     }
-    public boolean isContainerOrderNotFoundVisible(){
+
+    public boolean isContainerOrderNotFoundVisible() {
         return driver.findElement(containerOrderNotFound).isDisplayed();
     }
 }

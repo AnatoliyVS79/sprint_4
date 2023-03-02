@@ -15,7 +15,6 @@ public class ComponentElements {
     // Кнопка заказать
     private final By buttonOrder = By.xpath("//button[@class='Button_Button__ra12g']");
 
-
     public ComponentElements(WebDriver driver) {
         this.driver = driver;
     }
@@ -31,11 +30,10 @@ public class ComponentElements {
     public void clickScooterButtonHome() {
         driver.findElement(scooterButtonHome).click();
     }
+
     //метод "Клик по кнопке Заказать"
     public void clickButtonOrder() {
         driver.findElement(buttonOrder).click();
     }
-
-
 
 }

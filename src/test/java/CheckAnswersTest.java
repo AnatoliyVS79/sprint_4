@@ -13,7 +13,7 @@ public class CheckAnswersTest {
     WebDriver driver;
     private final String actualAnswer;
     private final int index;
-    MainPage mainPage ;
+    MainPage mainPage;
 
     public CheckAnswersTest(String actualAnswer, int index) {
         this.actualAnswer = actualAnswer;
@@ -26,7 +26,7 @@ public class CheckAnswersTest {
         mainPage = new MainPage(driver);
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name="Сравнение вопроса: {0} {1}")
     public static Object[][] getAnswers() {
         return new Object[][]{
                 {"Сутки — 400 рублей. Оплата курьеру — наличными или картой.", 0,},

@@ -11,12 +11,17 @@ import static config.WebDriverConfig.WAIT_SECONDS_TIMEOUT;
 
 public class WebDriverFactory {
     public static WebDriver get() {
-        String  browserName = System.getenv().get("browser");
+        String browserName = System.getenv().get("browser");
         WebDriver driver;
-        switch (browserName){
-            case "chrome": driver = new ChromeDriver(); break;
-            case "firefox": driver = new FirefoxDriver(); break;
-            default: throw new RuntimeException("Browser" + browserName + " not exist");
+        switch (browserName) {
+            case "chrome":
+                driver = new ChromeDriver();
+                break;
+            case "firefox":
+                driver = new FirefoxDriver();
+                break;
+            default:
+                throw new RuntimeException("Browser" + browserName + " not exist");
         }
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(WAIT_SECONDS_TIMEOUT));
